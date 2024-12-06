@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root {
+    /*========== Colors ==========*/
+    --gradient-color-red: linear-gradient(90deg,
+              hsl(7, 89%, 46%) 15%,
+              hsl(11, 93%, 68%) 100%);
+    --gradient-color-orange: linear-gradient(90deg,
+              hsl(22, 89%, 46%) 15%,
+              hsl(54, 90%, 45%) 100%);
+    --gradient-color-yellow: linear-gradient(90deg,
+              hsl(54, 89%, 46%) 15%,
+              hsl(92, 90%, 45%) 100%);
+    --gradient-color-green: linear-gradient(90deg,
+              hsl(92, 89%, 46%) 15%,
+              hsl(92, 90%, 68%) 100%);
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: "Roboto", serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(49, 48, 48);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main{
+    width: 350px;
+    height: 500px;
+    background-color: rgb(27, 27, 27);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding:50px 0;
+border-radius: 20px;
+}
+.main .text{
+    position: relative;
+}
+.main .text p{
+    position: relative;
+    top: 0;
+margin-bottom: 5px;
+   text-align: center;
+   font-size: 25px;
+   color: rgb(146, 146, 146);
+}
+.main .text h1{
+    text-align: center;
+    font-size: 60px;
+    font-weight: 600;
+}
+.main .battery{
+    position: relative;
+    width: 30%;
+    height: 43%;
+    background-color: white;
+    background-color: transparent;
+    border: 2px solid white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  
+}
+
+.main .battery::before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 10px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background-color: white;
+}
+
+.main .battery .level{
+    position: absolute;
+    width: 100%;
+    height:10%;
+    background: red;
+    bottom: 0;
+    right: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+}
+
+ .main .battery_status{
+  position:relative;
+  bottom: 0;
+  font-size: 22px;        
+}
+#stop{
+    padding: 10px 40px;
+    color:rgb(7, 7, 7);
+    font-size: 20px;
+    background-color: rgb(47, 250, 16); 
+    border: none;
+    cursor: pointer;
+  
+    border-radius: 1000px;
+}
+
+  
