@@ -1,4 +1,5 @@
 
+// Initialize battery monitoring
 initBattery();
 
 function initBattery() {
@@ -7,6 +8,13 @@ function initBattery() {
         batteryPercentage = document.querySelector('.battery__percentage');
     const stop = document.getElementById('stop');
     const alertSound = document.getElementById('alertSound');
+    let hasPlayedAlert = false; // Track if alert has been played
+    
+    // Check if battery API is supported
+    if (!navigator.getBattery) {
+        batteryStatus.innerHTML = 'Battery API not supported';
+        return;
+    }
 
     navigator.getBattery().then((batt) => {
         const updateBattery = () => {
@@ -25,30 +33,31 @@ function initBattery() {
                 batteryStatus.innerHTML = `Low battery <i class="fa-solid fa-battery-quarter fa-rotate-270" style="color: #fa0000;"></i>`;
             } else if (batt.charging) { /* Validate if the battery is charging */
                 batteryStatus.innerHTML = `Charging... <i class="fa-solid fa-bolt-lightning" style="color: #27eb00;"></i>`;
-                const battery_Liquid = document.querySelector('.level'); 
-                battery_Liquid.style.background = '#2bf34c';
 
             } else { /* If it's not loading, don't show anything. */
                 batteryStatus.innerHTML = '';
             }
-            if (level == 100 && !alertSound.paused) {
-                return; // Prevent multiple plays of the same sound
-            } else if (level == 100) {
+            // Play alert sound when battery reaches 100%
+            if (level === 100 && !hasPlayedAlert) {
                 alertSound.play().catch(error => {
-                    alert("Error playing audio:", error);
+                    console.error("Error playing audio:", error);
                 });
+                hasPlayedAlert = true;
+            } else if (level < 100) {
+                hasPlayedAlert = false; // Reset flag when battery goes below 100%
             }
 
-            /* Change the colors of the battery and remove the other colors */
+            /* Change the colors of the battery based on level */
             if (level <= 20) {
-                batteryLiquid.style.background = 'red';
+                batteryLiquid.style.background = '#ff0000'; // Red for low battery
             } else if (level <= 40) {
-                batteryLiquid.style.background = 'linear-gradient(to right, green, lightgreen)';
-                
+                batteryLiquid.style.background = '#ff6600'; // Orange for medium-low
+            } else if (level <= 60) {
+                batteryLiquid.style.background = '#ffff00'; // Yellow for medium
             } else if (level <= 80) {
-                batteryLiquid.style.background = 'linear-gradient(to right, red, orange)';
+                batteryLiquid.style.background = '#00ff00'; // Light green for good
             } else {
-                batteryLiquid.style.background = '#2bf34c';
+                batteryLiquid.style.background = '#2bf34c'; // Bright green for full
             }
         };
 
@@ -60,6 +69,11 @@ function initBattery() {
         stop.addEventListener('click', () => {
             alertSound.pause();
             alertSound.currentTime = 0; // Reset to the beginning
+            hasPlayedAlert = false; // Reset alert flag when manually stopped
         });
+    }).catch(error => {
+        console.error('Error accessing battery:', error);
+        batteryStatus.innerHTML = 'Unable to access battery information';
     });
 }
+

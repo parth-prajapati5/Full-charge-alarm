@@ -75,15 +75,16 @@ margin-bottom: 5px;
 .main .battery .level{
     position: absolute;
     width: 100%;
-    height:10%;
-    background: red;
+    height: 10%;
+    background: #ff0000;
     bottom: 0;
     right: 0;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
     overflow: hidden;
+    transition: all 0.3s ease;
 }
 
  .main .battery_status{
@@ -93,14 +94,19 @@ margin-bottom: 5px;
 }
 #stop{
     padding: 10px 40px;
-    color:rgb(7, 7, 7);
+    color: rgb(7, 7, 7);
     font-size: 20px;
-    font-weight:500;
+    font-weight: 500;
     background-color: rgb(47, 250, 16); 
     border: none;
     cursor: pointer;
-  
     border-radius: 1000px;
+    transition: all 0.3s ease;
+}
+
+#stop:hover {
+    background-color: rgb(37, 200, 6);
+    transform: scale(1.05);
 }
 
   
