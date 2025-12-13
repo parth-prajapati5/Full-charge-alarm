@@ -10,21 +10,59 @@
 </head>
 
 <body>
-    <div class="main">
-        <div class="text">
-            <p>Battery Level</p>
-            <h1 class="battery__percentage">10%</h1>
-        </div>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <h1 class="title">
+                    <i class="fa-solid fa-battery-three-quarters"></i>
+                    Battery Monitor
+                </h1>
+                <p class="subtitle">Real-time battery level tracking</p>
+            </div>
 
-        <div class="battery">
-            <div class="level"></div>
+            <div class="battery-section">
+                <div class="battery-container">
+                    <div class="battery-top"></div>
+                    <div class="battery">
+                        <div class="battery-body">
+                            <div class="level"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="battery-info">
+                    <div class="percentage">
+                        <span class="battery__percentage">10%</span>
+                    </div>
+                    <div class="status">
+                        <p class="battery_status">
+                            Low battery <i class="fa-solid fa-battery-quarter fa-rotate-270" style="color: #fa0000;"></i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="stop" class="stop-btn">
+                    <i class="fa-solid fa-stop"></i>
+                    Stop Alarm
+                </button>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <i class="fa-solid fa-volume-high"></i>
+                    <span>Alarm at 100%</span>
+                </div>
+                <div class="feature">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                    <span>Real-time monitoring</span>
+                </div>
+            </div>
         </div>
-        <p class="battery_status">
-        Low battery <i class="fa-solid fa-battery-quarter fa-rotate-270" style="color: #fa0000;"></i>
-        </p>
-        <button id="stop">stop music</button>
     </div>
-    <audio id="alertSound" src="Alarm Sound Effect.mp3"></audio> <!-- enter your music -->
+    
+    <audio id="alertSound" src="Alarm Sound Effect.mp3" autoplay loop></audio>
     <script src="script.js"></script>
 </body>
 
