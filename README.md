@@ -20,7 +20,7 @@ Once the battery reaches 100%, it triggers an alarm/notification.<br>
 The user is notified to unplug the charger.<br>
 ▶️ Installation & Usage
 # Clone the repository
-git clone https://github.com/your-username/full-charge-alarm.git
+git clone https://github.com/parth-prajapati5/Full-charge-alarm.git
 
 # Navigate to project folder
 cd full-charge-alarm
