@@ -1,6 +1,8 @@
 # Full-charge-alarm
 Full Charge Alarm is a simple yet useful application that alerts users when their device battery reaches 100% charge. This helps prevent overcharging, improves battery health, and ensures efficient power usage.
 
+Live : https://full-charge-alarm-system.netlify.app/
+
 🚀 Features
 🔔 Real-time battery monitoring
 ⚡ Instant alert when battery reaches full charge (100%)
